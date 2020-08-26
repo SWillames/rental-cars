@@ -1,4 +1,16 @@
 <h1><%= @car_category.name %></h1>
-<span><%= number_to_currency @car_category.daily_rate %></span>
-<span><%= number_to_currency @car_category.car_insurance %></span>
-<span><%= number_to_currency @car_category.third_party_insurance %></span>
+<dl>
+  <dt><%= CarCategory.human_attribute_name(:daily_rate) %></dt>
+  <dd><%= number_to_currency @car_category.daily_rate %></dd>
+  <dt><%= CarCategory.human_attribute_name(:car_insurance) %></dt>
+  <dd><%= number_to_currency @car_category.car_insurance %></dd>
+  <dt><%= CarCategory.human_attribute_name(:third_party_insurance) %></dt>
+  <dd><%= number_to_currency @car_category.third_party_insurance %></dd>
+</dl>
+<div>
+  <%= link_to "Voltar", car_categories_path%>
+</div>
+<div><%= link_to 'Editar', edit_car_category_path(@car_category) %></div>
+<div>
+  <%= link_to 'Apagar', car_category_path(@car_category), method: :delete, data: {confirm: 'Tem certeza que deseja apagar?'} %>
+</div>
